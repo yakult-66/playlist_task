@@ -15,17 +15,23 @@
 # コンポーネントについて
 
 - 基本的に使い回せるようにすること
-- ベースページを作成
-- ボタンはテキストを自由に受け取れてサイズも指定可能にする
+- ベースページを作成？
+- ボタンはテキストを自由に受け取れてサイズも指定可能にする？
 - アコーディオンメニューの作成
 - コンテンツ部分の作成
 - コンテンツ部分は画像+タイトルと 10:23:45(更新日時？それとも動画の再生時間？要確認)+右矢印
 
 # material-ui 関連
 
+- ページ
+  コンテンツ部分はセンター寄り
+  Container を使う？
+
 - Button
   https://material-ui.com/components/buttons/
-  ※ボタンの角落としは CSS で再現？
+  SVG を使うため
+  https://material-ui.com/api/svg-icon/
+  も必要？
 
 - アコーディオンメニュー
   https://material-ui.com/components/accordion/
@@ -33,7 +39,8 @@
   HTML だから改行する場合はどうする？
 
 - コンテンツ部分
-  card を使うか Grid を使うか要検討
+  カードを使う？
+  https://material-ui.com/components/cards/#card
 
 # その他
 
