@@ -23,10 +23,6 @@
 
 # material-ui 関連
 
-- ページ
-  コンテンツ部分はセンター寄り
-  Container を使う？
-
 - Button
   https://material-ui.com/components/buttons/
   SVG を使うため
