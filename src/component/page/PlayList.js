@@ -5,6 +5,7 @@ import { SortDelButton } from "../parts/SortDelButton";
 import { makeStyles } from "@material-ui/core/styles";
 import { PlayListAccordion } from "../parts/PlayListAccordion";
 import { MoveieListCard } from "../parts/MovieListCard";
+import { MoveieListCardTest } from "../parts/MoveieListCardTest";
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const PlayList = () => {
+  const content = [...Array(10)].map((data, index) => index);
   const classes = useStyles();
   return (
     <div className={classes.main}>
@@ -57,20 +59,26 @@ export const PlayList = () => {
         <div className={classes.titleText}>プレイリスト詳細</div>
       </div>
       {/**ボタン部分 */}
-      {/*
-      <VideoStartButton onClick={() => alert("クリックされました")} />
-      <EditButton />
-      <SortDelButton /> */}
+      <div>
+        <VideoStartButton onClick={() => alert("クリックされました")} />
+        <EditButton />
+        <SortDelButton />
+      </div>
       {/**アコーディオン部分 */}
       <div>
         <PlayListAccordion />
       </div>
       {/**メインコンテンツ */}
       <div>
-        <MoveieListCard
+        {content.map((data, index) => {
+          return (
+            <MoveieListCardTest key={index} movetitle={data} movetime={data} />
+          );
+        })}
+        {/* <MoveieListCard
           movieTitle="動画のタイトルです"
           movieLength="10:10:10"
-        />
+        /> */}
       </div>
     </div>
   );

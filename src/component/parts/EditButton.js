@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { SvgIcon } from "@material-ui/core";
+import { EditIcon } from "../icon/EditIcon";
 
 const useStyles = makeStyles((theme) => ({
   edittButton: {
@@ -39,6 +39,7 @@ export const EditButton = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.edittButton}>
+      <EditIcon />
       <Button onClick={props.onClick}>編集</Button>
     </div>
   );

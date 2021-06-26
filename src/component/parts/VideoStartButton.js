@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { SvgIcon } from "@material-ui/core";
+import { PlayIcon } from "../icon/PlayIcon";
 
 /**
  * TODO:再生ボタンの作成
@@ -35,6 +35,7 @@ export const VideoStartButton = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.videoStartButton}>
+      <PlayIcon />
       <Button onClick={props.onClick}>再生</Button>
     </div>
   );
