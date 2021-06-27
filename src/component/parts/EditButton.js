@@ -16,9 +16,11 @@ export const EditButton = (props) => {
   return (
     <div>
       <CommonButton
+        // TODO: bool値で渡すこと
         rounded={true}
         className={classes.edittButton}
         svgicon={<EditIcon />}
+        // TODO: Gridの中で幅いっぱい使うためfullwidthが必要
         fullWidth
       >
         編集

@@ -19,6 +19,7 @@ export const VideoStartButton = ({ ...props }) => {
       rounded={true}
       className={clsx(classes.videoStartButton)}
       svgicon={<PlayIcon />}
+      // TODO: Gridの中で幅いっぱい使うためfullwidthが必要
       fullWidth
     >
       再生

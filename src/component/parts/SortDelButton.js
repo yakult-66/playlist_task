@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 export const SortDelButton = (props) => {
   const classes = useStyles();
   return (
+    // // TODO: Gridの中で幅いっぱい使うためfullwidthが必要
     <CommonButton rounded={true} className={classes.sortDelButton} fullWidth>
       並び替え/削除
     </CommonButton>

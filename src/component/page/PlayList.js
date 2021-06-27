@@ -31,7 +31,6 @@ export const PlayList = () => {
   return (
     <div className={classes.main}>
       {/**タイトル部分 */}
-      <CommonButton rounded> 再生ボタン</CommonButton>
       <div className={classes.title}>
         <div className={classes.titleText}>プレイリスト詳細</div>
       </div>

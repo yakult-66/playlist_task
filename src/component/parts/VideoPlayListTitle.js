@@ -8,13 +8,17 @@ import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    // TODO:CSS Gridリストと呼ばれる方法を使う
+    // material-uiのGridと違って特定のpxで固定できるのがメリット
     display: "grid",
+    // TODO:1fr(maxWidth:956px) - 120px でGridを2つに分ける 1frは836pxになる
     gridTemplateColumns: "1fr 120px",
     maxWidth: "956px",
     width: "100%",
   },
   header: {
     display: "grid",
+    // TODO:gridTemplateRowsとgridTemplateColumns同時に割り当てられる
     gridTemplateRows: " 120px 1fr",
     gridTemplateColumns: "120px 1fr",
     maxWidth: "956px",
@@ -30,12 +34,14 @@ const useStyles = makeStyles((theme) => ({
     top: "0px",
 
     background: "#3ABCA5",
+    // TODO:枠が2px分できるから別のClassがpaddingする場合に注意が必要
     border: "2px solid #35D1B5",
     boxSizing: "border-box",
     borderRadius: "8px",
+    // TODO:SVGにもフォントカラーが適用されるからここで色を定義
     color: "#F9FAFC",
   },
-  test: {
+  iconText: {
     paddingTop: "7px",
     paddingRight: "18px",
     paddingLeft: "19px",
@@ -45,6 +51,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: "10px",
     lineHeight: "10px",
+  },
+  iconImg: {
+    height: 63,
+    width: 112,
+    paddingTop: 8,
+    paddingBottom: 8.6,
+    paddingRight: 2,
+    paddingLeft: 2,
   },
   playIcon: {
     fontSize: "12px",
@@ -59,23 +73,16 @@ export const VideoPlayListTitle = () => {
     <>
       <div className={classes.header}>
         <div className={classes.iconrap}>
-          <div className={classes.test}>VIDEO PLAYLIST</div>
-          <CardMedia
-            component="img"
+          <div className={classes.iconText}>VIDEO PLAYLIST</div>
+          <img
             src="https://source.unsplash.com/random/"
-            style={{
-              height: 63,
-              width: 112,
-              paddingTop: 8,
-              paddingBottom: 8.6,
-              paddingRight: 2,
-              paddingLeft: 2,
-            }}
+            className={classes.iconImg}
           />
           <PlayIcon className={classes.playIcon} />
         </div>
         <div className={classes.right}>aaa</div>
       </div>
+      {/** TODO:ここからボタン群 */}
       <div className={classes.root}>
         <div className={classes.left}>
           <Grid container justify="flex-start">
