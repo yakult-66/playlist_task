@@ -1,11 +1,7 @@
 import React from "react";
-import { VideoStartButton } from "../parts/VideoStartButton";
-import { EditButton } from "../parts/EditButton";
-import { SortDelButton } from "../parts/SortDelButton";
 import { makeStyles } from "@material-ui/core/styles";
 import { PlayListAccordion } from "../parts/PlayListAccordion";
 import { VideoListCard } from "../parts/VideoListCard";
-import { VideoListCardTest } from "../parts/VideoListCardTest";
 import { VideoPlayListTitle } from "../parts/VideoPlayListTitle";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,31 +16,10 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
   },
   title: {
-    position: "static",
-    // TODO:maxをつけると最大値のデカさを指定 ただのwidthが値だとその値固定
-    width: "100%",
-    maxWidth: "1479px",
-    height: "44px",
-    left: "90.5px",
-    top: "0px",
-    // TODO:boxShadowで下線をつける　titletextでつけるべきか
-    boxShadow: "inset 0px -1px 0px #F9FAFC",
-    flex: "none",
-    margin: "24px 0px",
     // TODO:分かりやすくするために色を付ける
     backgroundColor: "gray",
   },
   titleText: {
-    position: "static",
-    // width: "192px",
-    // height: "24px",
-    // left: "0px",
-    // top: "10px",
-    fontWeight: "bold",
-    fontSize: "24px",
-    // lineHeight: "24px",
-    display: "flex",
-    alignItems: "center",
     color: "#FFFFFF",
   },
 }));

@@ -38,7 +38,16 @@ export const PlayListAccordion = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography style={{ fontSize: "14px", lineHeight: "14px" }}>
+          <Typography
+            style={{
+              fontSize: "14px",
+              lineHeight: "14px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              width: 893,
+            }}
+          >
             テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認
           </Typography>
         </AccordionSummary>

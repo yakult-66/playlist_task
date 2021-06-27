@@ -4,10 +4,6 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   sortDelButton: {
-    /* Btn_40_text */
-
-    /* Auto Layout */
-
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -20,12 +16,8 @@ const useStyles = makeStyles((theme) => ({
     left: "413px",
     top: "0px",
 
-    /* btn_lightgr */
-
     background: "#4F535C",
     borderRadius: "32px",
-
-    /* Inside Auto Layout */
 
     flex: "none",
     order: "1",
