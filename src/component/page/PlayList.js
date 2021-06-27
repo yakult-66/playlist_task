@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { PlayListAccordion } from "../parts/PlayListAccordion";
 import { VideoListCard } from "../parts/VideoListCard";
 import { VideoPlayListTitle } from "../parts/VideoPlayListTitle";
+import { CommonButton } from "../parts/CommonButton";
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -30,13 +31,14 @@ export const PlayList = () => {
   return (
     <div className={classes.main}>
       {/**タイトル部分 */}
+      <CommonButton rounded> 再生ボタン</CommonButton>
       <div className={classes.title}>
         <div className={classes.titleText}>プレイリスト詳細</div>
       </div>
       {/**プレイリストタイトル部分 */}
-      <div>
-        <VideoPlayListTitle />
-      </div>
+      {/* <div> */}
+      <VideoPlayListTitle />
+      {/* </div> */}
       {/**アコーディオン部分 */}
       <div>
         <PlayListAccordion />
