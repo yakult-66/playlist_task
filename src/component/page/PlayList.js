@@ -4,8 +4,9 @@ import { EditButton } from "../parts/EditButton";
 import { SortDelButton } from "../parts/SortDelButton";
 import { makeStyles } from "@material-ui/core/styles";
 import { PlayListAccordion } from "../parts/PlayListAccordion";
-import { MoveieListCard } from "../parts/MovieListCard";
-import { MoveieListCardTest } from "../parts/MoveieListCardTest";
+import { VideoListCard } from "../parts/VideoListCard";
+import { VideoListCardTest } from "../parts/VideoListCardTest";
+import { VideoPlayListTitle } from "../parts/VideoPlayListTitle";
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -30,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "inset 0px -1px 0px #F9FAFC",
     flex: "none",
     margin: "24px 0px",
-    // padding: "12px 0px",
     // TODO:分かりやすくするために色を付ける
     backgroundColor: "gray",
   },
@@ -58,27 +58,26 @@ export const PlayList = () => {
       <div className={classes.title}>
         <div className={classes.titleText}>プレイリスト詳細</div>
       </div>
-      {/**ボタン部分 */}
+      {/**プレイリストタイトル部分 */}
       <div>
-        <VideoStartButton onClick={() => alert("クリックされました")} />
-        <EditButton />
-        <SortDelButton />
+        <VideoPlayListTitle />
       </div>
       {/**アコーディオン部分 */}
       <div>
         <PlayListAccordion />
       </div>
-      {/**メインコンテンツ */}
+      {/**動画リスト */}
       <div>
         {content.map((data, index) => {
           return (
-            <MoveieListCardTest key={index} movetitle={data} movetime={data} />
+            <VideoListCard
+              key={index}
+              videoTitle={`${data}番目の動画のタイトルです${data}番目の動画のタイトルです${data}番目の動画のタイトルです${data}番目の動画のタイトルです`}
+              videoLength="10:10:10"
+              onClick={() => alert(`${data}番目のカードがクリックされました`)}
+            />
           );
         })}
-        {/* <MoveieListCard
-          movieTitle="動画のタイトルです"
-          movieLength="10:10:10"
-        /> */}
       </div>
     </div>
   );

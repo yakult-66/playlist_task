@@ -3,13 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { PlayIcon } from "../icon/PlayIcon";
 
-/**
- * TODO:再生ボタンの作成
- * styleの当て方はこれでよいか？
- * CSSの角落としの部分は編集と並び替え/削除にも使っているから
- * CSSを継承？したいがどうやるべきか
- *
- */
 const useStyles = makeStyles((theme) => ({
   videoStartButton: {
     display: "flex",
@@ -35,8 +28,10 @@ export const VideoStartButton = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.videoStartButton}>
-      <PlayIcon />
-      <Button onClick={props.onClick}>再生</Button>
+      <Button onClick={props.onClick}>
+        <PlayIcon />
+        再生
+      </Button>
     </div>
   );
 };

@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const MoveieListCardTest = (props) => {
+export const VideoListCardTest = (props) => {
   const classes = useStyles();
 
   return (
@@ -55,10 +55,10 @@ export const MoveieListCardTest = (props) => {
             variant="h5"
             onClick={() => alert("タイトルがクリックされました")}
           >
-            動画のタイトルは{props.movetitle}
+            動画のタイトルは{props.videotitle}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            動画の長さは{props.movetime}
+            動画の長さは{props.videotime}
           </Typography>
         </CardContent>
       </div>
