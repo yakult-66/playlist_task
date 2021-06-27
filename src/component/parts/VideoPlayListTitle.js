@@ -4,18 +4,25 @@ import { VideoStartButton } from "./VideoStartButton";
 import { SortDelButton } from "./SortDelButton";
 import { EditButton } from "./EditButton";
 import { Grid, CardMedia, SvgIcon } from "@material-ui/core";
-import { Card } from "@material-ui/core";
+import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "blue",
+    display: "grid",
+    gridTemplateColumns: "1fr 120px",
+    maxWidth: "956px",
+    width: "100%",
   },
+  header: {
+    display: "grid",
+    gridTemplateRows: " 120px 1fr",
+    gridTemplateColumns: "120px 1fr",
+    maxWidth: "956px",
+    width: "100%",
+  },
+  left: {},
+  right: {},
   iconrap: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "9px 4px",
-
     position: "static",
     width: "120px",
     height: "120px",
@@ -26,11 +33,23 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #35D1B5",
     boxSizing: "border-box",
     borderRadius: "8px",
-
-    flex: "none",
-    order: "0",
-    flexGrow: "0",
-    margin: "0px 11px",
+    color: "#F9FAFC",
+  },
+  test: {
+    paddingTop: "7px",
+    paddingRight: "18px",
+    paddingLeft: "19px",
+    // TODO:ここからテキスト関連
+    fontFamily: "Noto Sans JP",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "10px",
+    lineHeight: "10px",
+  },
+  playIcon: {
+    fontSize: "12px",
+    textAlign: "center",
+    paddingBottom: "8.57px",
   },
 }));
 
@@ -38,8 +57,52 @@ export const VideoPlayListTitle = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid>
-        <div className={classes.root}>
+      <div className={classes.header}>
+        <div className={classes.iconrap}>
+          <div className={classes.test}>VIDEO PLAYLIST</div>
+          <CardMedia
+            component="img"
+            src="https://source.unsplash.com/random/"
+            style={{
+              height: 63,
+              width: 112,
+              paddingTop: 8,
+              paddingBottom: 8.6,
+              paddingRight: 2,
+              paddingLeft: 2,
+            }}
+          />
+          <PlayIcon className={classes.playIcon} />
+        </div>
+        <div className={classes.right}>aaa</div>
+      </div>
+      <div className={classes.root}>
+        <div className={classes.left}>
+          <Grid container justify="flex-start">
+            <Grid item xs={12} md={6} style={{ paddingRight: 6.5 }}>
+              <VideoStartButton />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={3}
+              style={{ paddingLeft: 6.5, paddingRight: 6.5 }}
+            >
+              <EditButton />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={3}
+              style={{ paddingLeft: 6.5, paddingRight: 13 }}
+            >
+              <SortDelButton />
+            </Grid>
+          </Grid>
+        </div>
+
+        <div className={classes.right}>aaaaaaaaaaaaaaaa</div>
+        {/* <div className={classes.root}>
           ビデオリストTitle部部分です
           <div className={classes.iconrap}>
             test
@@ -72,7 +135,8 @@ export const VideoPlayListTitle = () => {
             <div>test</div>
           </div>
         </div>
-      </Grid>
+ */}
+      </div>
     </>
   );
 };
