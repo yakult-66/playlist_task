@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -15,45 +15,69 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   playListAccordion: {
-    position: "static",
-    maxWidth: "893px",
+    // TODO:仮で高さと色を指定
+    height: "150px",
+    background: "blue",
+    "& .MuiButtonBase-root MuiAccordionSummary-root": {
+      margin: "0px",
+      padding: "0px",
+    },
+    "& .MuiAccordionSummary-content": {
+      margin: "0px",
+      paddingTop: "8px",
+      paddingBottom: "8px",
+      paddingLeft: "8px",
+    },
+  },
+  accordionText: {
+    fontFamily: "Noto Sans JP",
+    fontWeight: "400",
+    style: "normal",
+    fontSize: "14px",
+    lineHeight: "14px",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
     height: "54px",
-    left: "8px",
-    top: "8px",
-
-    flex: "none",
-    order: "0",
-    flexGrow: "0",
-    margin: "0px 10px",
+    maxWidth: "893px",
+    width: "100%",
+    textAlign: "left",
+  },
+  accordionOpen: {
+    height: "100px",
   },
 }));
-
 export const PlayListAccordion = () => {
   const classes = useStyles();
+
+  const [accordionOpen, isAccordionOpen] = useState("flase");
+  console.log(accordionOpen);
+
   return (
     <div className={classes.playListAccordion}>
       <Accordion>
         <AccordionSummary
+          onClick={() => isAccordionOpen(!accordionOpen)}
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
           <Typography
-            style={{
-              fontSize: "14px",
-              lineHeight: "14px",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-              width: 893,
-            }}
+            className={clsx(
+              classes.accordionText,
+              accordionOpen && classes.accordionOpen
+            )}
           >
-            テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認テキストの長さを確認
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            テストですテストですテストですテストですテストですテストですテストですテストですテストです
           </Typography>
         </AccordionSummary>
-        {/*     <AccordionDetails>
-          <Typography>開いたときに見えるテキスト です</Typography>
-        </AccordionDetails> */}
       </Accordion>
     </div>
   );

@@ -3,36 +3,47 @@ import { makeStyles } from "@material-ui/core/styles";
 import { VideoStartButton } from "./VideoStartButton";
 import { SortDelButton } from "./SortDelButton";
 import { EditButton } from "./EditButton";
-import { Grid, CardMedia, SvgIcon } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // TODO:CSS Gridリストと呼ばれる方法を使う
-    // material-uiのGridと違って特定のpxで固定できるのがメリット
-    display: "grid",
-    // TODO:1fr(maxWidth:956px) - 120px でGridを2つに分ける 1frは836pxになる
-    gridTemplateColumns: "1fr 120px",
     maxWidth: "956px",
     width: "100%",
+    fontFamily: "Noto Sans JP",
+    fontStyle: "normal",
+    color: "#F9FAFC",
   },
   header: {
     display: "grid",
     // TODO:gridTemplateRowsとgridTemplateColumns同時に割り当てられる
     gridTemplateRows: " 120px 1fr",
     gridTemplateColumns: "120px 1fr",
+
     maxWidth: "956px",
     width: "100%",
   },
+  title: {
+    paddingTop: "4px",
+    paddingBottom: "4px",
+    paddingLeft: "11px",
+  },
+  titletext: {
+    padding: "16px",
+    overflow: "hidden",
+    height: "80px",
+    fontSize: "18px",
+    LineHeight: "18px",
+    fontWeight: "bold",
+    textAlign: "left",
+  },
   left: {},
-  right: {},
   iconrap: {
     position: "static",
     width: "120px",
     height: "120px",
     left: "0px",
     top: "0px",
-
     background: "#3ABCA5",
     // TODO:枠が2px分できるから別のClassがpaddingする場合に注意が必要
     border: "2px solid #35D1B5",
@@ -65,12 +76,33 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     paddingBottom: "8.57px",
   },
+  buttonGrid: {
+    // TODO:CSS Gridリストと呼ばれる方法を使う
+    // material-uiのGridと違って特定のpxで固定できるのがメリット
+    display: "grid",
+    // TODO:1fr(maxWidth:956px) - 120px でGridを2つに分ける 1frは836pxになる
+    gridTemplateColumns: "1fr 120px",
+    maxWidth: "956px",
+    width: "100%",
+    height: "40px",
+    paddingTop: "24px",
+  },
+  buttonGridRight: {
+    paddingTop: "6px",
+    fontSize: "12px",
+    lineHeight: "12px",
+    fontWeight: "400",
+    color: "#BBBBBB",
+    textAlign: "left",
+  },
+  createDate: { paddingBottom: "4px" },
+  videoMum: { paddingBottom: "6px" },
 }));
 
 export const VideoPlayListTitle = () => {
   const classes = useStyles();
   return (
-    <>
+    <div className={classes.root}>
       <div className={classes.header}>
         <div className={classes.iconrap}>
           <div className={classes.iconText}>VIDEO PLAYLIST</div>
@@ -80,10 +112,17 @@ export const VideoPlayListTitle = () => {
           />
           <PlayIcon className={classes.playIcon} />
         </div>
-        <div className={classes.right}>aaa</div>
+        <div className={classes.title}>
+          <Typography className={classes.titletext}>
+            {/** */}
+            オーディオプレイリスト名オーディオプレイリスト名
+            オーディオプレイリスト名オーディオプレイリスト名
+            オーディオプレイリスト名オーディオプレイリスト名
+          </Typography>
+        </div>
       </div>
       {/** TODO:ここからボタン群 */}
-      <div className={classes.root}>
+      <div className={classes.buttonGrid}>
         <div className={classes.left}>
           <Grid container justify="flex-start">
             <Grid item xs={12} md={6} style={{ paddingRight: 6.5 }}>
@@ -108,42 +147,11 @@ export const VideoPlayListTitle = () => {
           </Grid>
         </div>
 
-        <div className={classes.right}>aaaaaaaaaaaaaaaa</div>
-        {/* <div className={classes.root}>
-          ビデオリストTitle部部分です
-          <div className={classes.iconrap}>
-            test
-            <CardMedia
-              component="img"
-              src="https://source.unsplash.com/random"
-              style={{ height: 63, width: 112 }}
-            />
-            <SvgIcon>
-              <svg
-                width="10"
-                height="12"
-                viewBox="0 0 10 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.34401 5.16L1.67601 0.731999C1.02801 0.347999 0.200012 0.827999 0.200012 1.584V10.44C0.200012 11.196 1.02801 11.676 1.67601 11.292L9.34401 6.864C10.004 6.492 10.004 5.544 9.34401 5.16Z"
-                  fill="#F9FAFC"
-                />
-              </svg>
-            </SvgIcon>
-            <div style={{ display: "flex" }}>testestetest</div>
-          </div>
-          <div>
-            <VideoStartButton />
-            <EditButton />
-            <SortDelButton />
-            <div>test</div>
-            <div>test</div>
-          </div>
+        <div className={classes.buttonGridRight}>
+          <div className={classes.createDate}>作成日：2020.10.04</div>
+          <div className={classes.videoMum}> 全15動画</div>
         </div>
- */}
       </div>
-    </>
+    </div>
   );
 };

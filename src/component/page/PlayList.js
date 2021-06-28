@@ -34,26 +34,28 @@ export const PlayList = () => {
       <div className={classes.title}>
         <div className={classes.titleText}>プレイリスト詳細</div>
       </div>
-      {/**プレイリストタイトル部分 */}
-      {/* <div> */}
-      <VideoPlayListTitle />
-      {/* </div> */}
-      {/**アコーディオン部分 */}
-      <div>
-        <PlayListAccordion />
-      </div>
-      {/**動画リスト */}
-      <div>
-        {content.map((data, index) => {
-          return (
-            <VideoListCard
-              key={index}
-              videoTitle={`${data}番目の動画のタイトルです${data}番目の動画のタイトルです${data}番目の動画のタイトルです${data}番目の動画のタイトルです`}
-              videoLength="10:10:10"
-              onClick={() => alert(`${data}番目のカードがクリックされました`)}
-            />
-          );
-        })}
+      <div style={{ maxWidth: "956px", width: "100%" }}>
+        {/**プレイリストタイトル部分 */}
+        {/* <div> */}
+        <VideoPlayListTitle />
+        {/* </div> */}
+        {/**アコーディオン部分 */}
+        <div>
+          <PlayListAccordion />
+        </div>
+        {/**動画リスト */}
+        <div>
+          {content.map((data, index) => {
+            return (
+              <VideoListCard
+                key={index}
+                videoTitle={`${data}番目の動画です`}
+                videoLength="10:10:10"
+                onClick={() => alert(`${data}番目のカードがクリックされました`)}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
