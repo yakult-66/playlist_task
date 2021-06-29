@@ -49,7 +49,7 @@ export const PlayList = () => {
             return (
               <VideoListCard
                 key={index}
-                videoTitle={`${data}番目の動画です`}
+                videoTitle={`${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です`}
                 videoLength="10:10:10"
                 onClick={() => alert(`${data}番目のカードがクリックされました`)}
               />

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { VideoStartButton } from "./VideoStartButton";
 import { SortDelButton } from "./SortDelButton";
 import { EditButton } from "./EditButton";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Hidden } from "@material-ui/core";
 import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "11px",
   },
   titletext: {
-    padding: "16px",
+    //padding: "16px",
+    margin: 16,
     overflow: "hidden",
     height: "80px",
     fontSize: "18px",
@@ -84,8 +85,10 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: "1fr 120px",
     maxWidth: "956px",
     width: "100%",
-    height: "40px",
     paddingTop: "24px",
+    [theme.breakpoints.down("xs")]: {
+      display: "block",
+    },
   },
   buttonGridRight: {
     paddingTop: "6px",
@@ -108,6 +111,7 @@ export const VideoPlayListTitle = () => {
           <div className={classes.iconText}>VIDEO PLAYLIST</div>
           <img
             src="https://source.unsplash.com/random/"
+            alt="a"
             className={classes.iconImg}
           />
           <PlayIcon className={classes.playIcon} />
@@ -115,6 +119,9 @@ export const VideoPlayListTitle = () => {
         <div className={classes.title}>
           <Typography className={classes.titletext}>
             {/** */}
+            オーディオプレイリスト名オーディオプレイリスト名
+            オーディオプレイリスト名オーディオプレイリスト名
+            オーディオプレイリスト名オーディオプレイリスト名
             オーディオプレイリスト名オーディオプレイリスト名
             オーディオプレイリスト名オーディオプレイリスト名
             オーディオプレイリスト名オーディオプレイリスト名
@@ -130,7 +137,7 @@ export const VideoPlayListTitle = () => {
             </Grid>
             <Grid
               item
-              xs={12}
+              xs={6}
               md={3}
               style={{ paddingLeft: 6.5, paddingRight: 6.5 }}
             >
@@ -138,7 +145,7 @@ export const VideoPlayListTitle = () => {
             </Grid>
             <Grid
               item
-              xs={12}
+              xs={6}
               md={3}
               style={{ paddingLeft: 6.5, paddingRight: 13 }}
             >
@@ -147,11 +154,17 @@ export const VideoPlayListTitle = () => {
           </Grid>
         </div>
 
-        <div className={classes.buttonGridRight}>
-          <div className={classes.createDate}>作成日：2020.10.04</div>
-          <div className={classes.videoMum}> 全15動画</div>
-        </div>
+        <Hidden xsDown>
+          <div className={classes.buttonGridRight}>
+            <div className={classes.createDate}>作成日：2020.10.04</div>
+            <div className={classes.videoMum}> 全15動画</div>
+          </div>
+        </Hidden>
       </div>
+      <Hidden smUp>
+        <div className={classes.createDate}>作成日：2020.10.04</div>
+        <div className={classes.videoMum}> 全15動画</div>
+      </Hidden>
     </div>
   );
 };

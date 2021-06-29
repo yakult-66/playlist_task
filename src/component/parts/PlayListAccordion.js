@@ -14,43 +14,46 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
  */
 
 const useStyles = makeStyles((theme) => ({
-  playListAccordion: {
-    // TODO:仮で高さと色を指定
-    height: "150px",
-    background: "blue",
-    "& .MuiButtonBase-root MuiAccordionSummary-root": {
-      margin: "0px",
-      padding: "0px",
-    },
-    "& .MuiAccordionSummary-content": {
-      margin: "0px",
-      paddingTop: "8px",
-      paddingBottom: "8px",
-      paddingLeft: "8px",
-    },
+  playListAccordionSummaryRoot: {
+    margin: 0,
+    paddingRight: 16,
+    paddingLeft: 0,
+  },
+  playListAccordionSummaryContent: {
+    margin: "0px !important",
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingLeft: 8,
   },
   accordionText: {
     fontFamily: "Noto Sans JP",
-    fontWeight: "400",
+    fontWeight: 400,
     style: "normal",
-    fontSize: "14px",
+    fontSize: 14,
     lineHeight: "14px",
     textOverflow: "ellipsis",
     overflow: "hidden",
-    height: "54px",
-    maxWidth: "893px",
+    maxWidth: 893,
     width: "100%",
     textAlign: "left",
   },
+  accordionHidden: {
+    display: "-webkit-box",
+    "-webkit-box-orient": "vertical",
+    "-webkit-line-clamp": 3,
+  },
   accordionOpen: {
-    height: "100px",
+    height: 100,
   },
 }));
+
+const word =
+  "テストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです\nテストですテストですテストですテストですテストですテストですテストですテストですテストです";
+
 export const PlayListAccordion = () => {
   const classes = useStyles();
 
-  const [accordionOpen, isAccordionOpen] = useState("flase");
-  console.log(accordionOpen);
+  const [accordionOpen, isAccordionOpen] = useState(false);
 
   return (
     <div className={classes.playListAccordion}>
@@ -60,22 +63,26 @@ export const PlayListAccordion = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          classes={{
+            root: classes.playListAccordionSummaryRoot,
+            content: classes.playListAccordionSummaryContent,
+          }}
         >
           <Typography
             className={clsx(
               classes.accordionText,
-              accordionOpen && classes.accordionOpen
+              accordionOpen && classes.accordionOpen,
+              !accordionOpen && classes.accordionHidden
             )}
           >
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
-            テストですテストですテストですテストですテストですテストですテストですテストですテストです
+            {accordionOpen
+              ? word.split("\n").map((data, index) => (
+                  <>
+                    {data}
+                    <br />
+                  </>
+                ))
+              : word}
           </Typography>
         </AccordionSummary>
       </Accordion>
