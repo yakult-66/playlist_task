@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontWeight: "bold",
     lineHeight: "20px",
+    background: "#08AEF4",
+    "&:hover": {
+      background: "#08AEF4",
+    },
   },
 }));
 

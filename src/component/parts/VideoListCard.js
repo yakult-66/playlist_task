@@ -1,13 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import Divider from "@material-ui/core/Divider";
+import {
+  Hidden,
+  Divider,
+  Typography,
+  CardMedia,
+  Card,
+  CardContent,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -21,20 +22,18 @@ const useStyles = makeStyles((theme) => ({
       //paddingBottom: "35px",
       paddingLeft: "16px",
       //paddingRight: "16px",
-      //background: "green",
       width: "777px",
-      height: "47px",
+      //height: "47px",
+      [theme.breakpoints.down("xs")]: {
+        paddingLeft: 0,
+      },
     },
   },
   cardMedia: {
-    // TODO:カードメディアの大きさは値である必要がある 文字列だと反映されない
     height: 63,
     width: 112,
   },
   videoInfo: {
-    //paddingTop: "18px",
-    //paddingBottom: "35px",
-    //paddingLeft: "16px",
     paddingRight: 0,
     background: "#35383F",
     textAlign: "left",
@@ -50,7 +49,13 @@ const useStyles = makeStyles((theme) => ({
     "-webkit-box-orient": "vertical",
     "-webkit-line-clamp": 2,
     overflow: "hidden",
-    height: "47px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 12,
+      lineHeight: "12px",
+      color: "#BBBBBB",
+      position: "absolute",
+      paddingTop: 24.5,
+    },
   },
   videoLength: {
     fontFamily: "Noto Sans JP",
@@ -59,11 +64,14 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "14px",
     fontStyle: "normal",
     color: "#BBBBBB",
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 60,
+    },
   },
   arrowForward: {
     paddingTop: 40,
     paddingBottom: 40,
-    paddingRight: 15,
+    //paddingRight: 15,
     paddingLeft: 16,
     color: "#F9FAFC",
   },
@@ -74,16 +82,33 @@ export const VideoListCard = ({ videoTitle, videoLength }) => {
 
   return (
     <>
-      <div style={{ paddingBottom: "5px" }}>
-        <Card className={classes.card} /* onClick={props.onClick} */>
-          <div style={{ paddingTop: "18.5px", paddingBottom: "18.5px" }}>
-            <CardMedia
-              className={classes.cardMedia}
-              component="img"
-              image="https://source.unsplash.com/random/"
-            />
-          </div>
-          <CardContent className={classes.videoInfo}>
+      <div>
+        <Card className={classes.card}>
+          <Hidden xsDown>
+            <div style={{ paddingTop: "18.5px", paddingBottom: "18.5px" }}>
+              <CardMedia
+                className={classes.cardMedia}
+                component="img"
+                image="https://source.unsplash.com/random/"
+              />
+            </div>
+          </Hidden>
+          <CardContent
+            className={classes.videoInfo}
+            style={{ position: "relative" }}
+          >
+            <Hidden smUp>
+              <img
+                src="https://source.unsplash.com/random/"
+                style={{
+                  width: 48,
+                  height: 27,
+                  position: "absolute",
+                  paddingTop: 4.5,
+                }}
+                alt="img"
+              />
+            </Hidden>
             <Typography className={classes.videoTitle}>{videoTitle}</Typography>
             <Typography className={classes.videoLength}>
               {videoLength}

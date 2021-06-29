@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { VideoStartButton } from "./VideoStartButton";
 import { SortDelButton } from "./SortDelButton";
 import { EditButton } from "./EditButton";
-import { Grid, Typography, Hidden } from "@material-ui/core";
+import { Grid, Typography, Hidden, Divider } from "@material-ui/core";
 import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,17 +19,21 @@ const useStyles = makeStyles((theme) => ({
     // TODO:gridTemplateRowsとgridTemplateColumns同時に割り当てられる
     gridTemplateRows: " 120px 1fr",
     gridTemplateColumns: "120px 1fr",
-
     maxWidth: "956px",
     width: "100%",
+    [theme.breakpoints.down("xs")]: {
+      display: "block",
+    },
   },
   title: {
     paddingTop: "4px",
     paddingBottom: "4px",
     paddingLeft: "11px",
+    [theme.breakpoints.down("xs")]: {
+      padding: 0,
+    },
   },
   titletext: {
-    //padding: "16px",
     margin: 16,
     overflow: "hidden",
     height: "80px",
@@ -37,8 +41,16 @@ const useStyles = makeStyles((theme) => ({
     LineHeight: "18px",
     fontWeight: "bold",
     textAlign: "left",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 14,
+      lineHeight: "14px",
+      fontFamily: "Noto Sans JP ",
+      marginTop: 10,
+      marginBottom: 16,
+      marginRight: 0,
+      marginLeft: 0,
+    },
   },
-  left: {},
   iconrap: {
     position: "static",
     width: "120px",
@@ -52,14 +64,16 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "8px",
     // TODO:SVGにもフォントカラーが適用されるからここで色を定義
     color: "#F9FAFC",
+    [theme.breakpoints.down("xs")]: {
+      margin: "auto",
+      marginBottom: 16,
+    },
   },
   iconText: {
     paddingTop: "7px",
-    paddingRight: "18px",
-    paddingLeft: "19px",
+    paddingRight: "19px",
+    paddingLeft: "18px",
     // TODO:ここからテキスト関連
-    fontFamily: "Noto Sans JP",
-    fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "10px",
     lineHeight: "10px",
@@ -86,8 +100,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "956px",
     width: "100%",
     paddingTop: "24px",
+    // TODO:特定のサイズ(xs)以下になったらdisplayをblockにして
+    // gridを破壊する
     [theme.breakpoints.down("xs")]: {
       display: "block",
+      paddingTop: 0,
     },
   },
   buttonGridRight: {
@@ -98,8 +115,62 @@ const useStyles = makeStyles((theme) => ({
     color: "#BBBBBB",
     textAlign: "left",
   },
-  createDate: { paddingBottom: "4px" },
+  videoStartButton: {
+    paddingRight: 6.5,
+    [theme.breakpoints.down("sm")]: {
+      paddingRight: 0,
+    },
+  },
+  editButton: {
+    paddingLeft: 6.5,
+    paddingRight: 6.5,
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 24,
+      paddingRight: 6.5,
+      paddingLeft: 0,
+    },
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 16,
+      paddingRight: 8,
+      paddingBottom: 16,
+    },
+  },
+  sortDelButton: {
+    paddingLeft: 6.5,
+    paddingRight: 13,
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 24,
+      paddingRight: 13,
+      paddingLeft: 6.5,
+    },
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 16,
+      paddingBottom: 16,
+      paddingRight: 0,
+      paddingLeft: 8,
+    },
+  },
+  createDate: {
+    paddingBottom: "4px",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 64,
+    },
+  },
   videoMum: { paddingBottom: "6px" },
+  playListInfo: {
+    fontSize: "14px",
+    lineHeight: "14px",
+    fontWeight: "400",
+    color: "#BBBBBB",
+    textAlign: "center",
+  },
+  divider: {
+    backgroundColor: "#4F535C",
+    marginTop: 12,
+    marginBottom: 12,
+    [theme.breakpoints.down("md")]: { marginTop: 36 },
+    [theme.breakpoints.down("xs")]: { marginTop: 12 },
+  },
 }));
 
 export const VideoPlayListTitle = () => {
@@ -132,23 +203,13 @@ export const VideoPlayListTitle = () => {
       <div className={classes.buttonGrid}>
         <div className={classes.left}>
           <Grid container justify="flex-start">
-            <Grid item xs={12} md={6} style={{ paddingRight: 6.5 }}>
+            <Grid item xs={12} md={6} className={classes.videoStartButton}>
               <VideoStartButton />
             </Grid>
-            <Grid
-              item
-              xs={6}
-              md={3}
-              style={{ paddingLeft: 6.5, paddingRight: 6.5 }}
-            >
+            <Grid item xs={6} md={3} className={classes.editButton}>
               <EditButton />
             </Grid>
-            <Grid
-              item
-              xs={6}
-              md={3}
-              style={{ paddingLeft: 6.5, paddingRight: 13 }}
-            >
+            <Grid item xs={6} md={3} className={classes.sortDelButton}>
               <SortDelButton />
             </Grid>
           </Grid>
@@ -160,11 +221,13 @@ export const VideoPlayListTitle = () => {
             <div className={classes.videoMum}> 全15動画</div>
           </div>
         </Hidden>
+        <Hidden smUp>
+          <div className={classes.playListInfo}>
+            作成日：2020.10.04 / 全15動画
+          </div>
+        </Hidden>
       </div>
-      <Hidden smUp>
-        <div className={classes.createDate}>作成日：2020.10.04</div>
-        <div className={classes.videoMum}> 全15動画</div>
-      </Hidden>
+      <Divider className={classes.divider} />
     </div>
   );
 };

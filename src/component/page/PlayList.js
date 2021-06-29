@@ -3,11 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { PlayListAccordion } from "../parts/PlayListAccordion";
 import { VideoListCard } from "../parts/VideoListCard";
 import { VideoPlayListTitle } from "../parts/VideoPlayListTitle";
-import { CommonButton } from "../parts/CommonButton";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    width: "100vw",
+    maxWidth: "100%",
     minHeight: "100vh",
     backgroundColor: "#35383F",
     display: "flex",
@@ -15,13 +15,35 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: 0,
     overflow: "hidden",
+    fontFamily: "Noto Sans JP",
   },
-  title: {
-    // TODO:分かりやすくするために色を付ける
-    backgroundColor: "gray",
-  },
+  title: { width: "100%", maxWidth: 1479 },
   titleText: {
+    textAlign: "left",
+    fontWeight: "bold",
     color: "#FFFFFF",
+    fontStyle: "normal",
+    fontSize: 24,
+    lineHeight: "24px",
+    paddingTop: 10,
+    paddingBottom: 10,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 18,
+      lineHeight: "18px",
+      paddingTop: 12,
+      paddingBottom: 12,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 16,
+      lineHeight: "16px",
+    },
+  },
+  titleDivider: {
+    background: "#E5E5E5",
+    marginBottom: 24,
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: 16,
+    },
   },
 }));
 
@@ -33,12 +55,13 @@ export const PlayList = () => {
       {/**タイトル部分 */}
       <div className={classes.title}>
         <div className={classes.titleText}>プレイリスト詳細</div>
+        <Divider className={classes.titleDivider} />
       </div>
+
       <div style={{ maxWidth: "956px", width: "100%" }}>
         {/**プレイリストタイトル部分 */}
-        {/* <div> */}
         <VideoPlayListTitle />
-        {/* </div> */}
+
         {/**アコーディオン部分 */}
         <div>
           <PlayListAccordion />
