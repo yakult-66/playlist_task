@@ -6,6 +6,7 @@ const useStyles = makeStyles(() => ({
   commonButton: {
     paddingTop: "10px",
     paddingBottom: "10px",
+    color: "#F9FAFC",
     // TODO: commonButtonクラス配下でMuiButton-startIconクラスの物に適用
     // 今回はsvgアイコンが全て同じ位置に存在するため共通化コンポーネント内に仕込む
     "& .MuiButton-startIcon": {
@@ -24,7 +25,6 @@ export const CommonButton = ({ className, ...props }) => {
 
   return (
     <Button
-      color="primary"
       variant="contained"
       // TODO:クラスを複数適用するにはclsxが必要 importも必要
       className={clsx(

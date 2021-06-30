@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: "16px",
     },
   },
+  content: { maxWidth: "956px", width: "100%" },
   titleDivider: {
     background: "#E5E5E5",
     marginBottom: 24,
@@ -52,21 +53,20 @@ export const PlayList = () => {
   const classes = useStyles();
   return (
     <div className={classes.main}>
-      {/**タイトル部分 */}
+      {/** タイトル部分 */}
       <div className={classes.title}>
         <div className={classes.titleText}>プレイリスト詳細</div>
         <Divider className={classes.titleDivider} />
       </div>
-
-      <div style={{ maxWidth: "956px", width: "100%" }}>
-        {/**プレイリストタイトル部分 */}
+      {/** コンテンツ部分 */}
+      <div className={classes.content} style={{}}>
+        {/** プレイリストタイトル部分 */}
         <VideoPlayListTitle />
-
-        {/**アコーディオン部分 */}
+        {/** アコーディオン部分 */}
         <div>
           <PlayListAccordion />
         </div>
-        {/**動画リスト */}
+        {/** 動画リスト */}
         <div>
           {content.map((data, index) => {
             return (

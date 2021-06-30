@@ -8,8 +8,6 @@ import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: "956px",
-    width: "100%",
     fontFamily: "Noto Sans JP",
     fontStyle: "normal",
     color: "#F9FAFC",
@@ -19,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     // TODO:gridTemplateRowsとgridTemplateColumns同時に割り当てられる
     gridTemplateRows: " 120px 1fr",
     gridTemplateColumns: "120px 1fr",
-    maxWidth: "956px",
-    width: "100%",
+    //maxWidth: "956px",
+    //width: "100%",
     [theme.breakpoints.down("xs")]: {
       display: "block",
     },
@@ -36,23 +34,23 @@ const useStyles = makeStyles((theme) => ({
   titletext: {
     margin: 16,
     overflow: "hidden",
-    height: "80px",
+    maxHeight: "80px",
+    height: "100%",
     fontSize: "18px",
     LineHeight: "18px",
     fontWeight: "bold",
     textAlign: "left",
     [theme.breakpoints.down("xs")]: {
-      fontSize: 14,
-      lineHeight: "14px",
-      fontFamily: "Noto Sans JP ",
       marginTop: 10,
       marginBottom: 16,
       marginRight: 0,
       marginLeft: 0,
+      fontSize: 14,
+      lineHeight: "14px",
+      fontFamily: "Noto Sans JP ",
     },
   },
   iconrap: {
-    position: "static",
     width: "120px",
     height: "120px",
     left: "0px",
@@ -65,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
     // TODO:SVGにもフォントカラーが適用されるからここで色を定義
     color: "#F9FAFC",
     [theme.breakpoints.down("xs")]: {
+      // TODO:アイコンを囲うCSSは真ん中に来るからmarginをautoに指定
       margin: "auto",
       marginBottom: 16,
     },
@@ -73,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "7px",
     paddingRight: "19px",
     paddingLeft: "18px",
-    // TODO:ここからテキスト関連
     fontWeight: "bold",
     fontSize: "10px",
     lineHeight: "10px",
@@ -82,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     height: 63,
     width: 112,
     paddingTop: 8,
-    paddingBottom: 8.6,
+    paddingBottom: 8,
     paddingRight: 2,
     paddingLeft: 2,
   },
@@ -92,13 +90,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "8.57px",
   },
   buttonGrid: {
+    maxWidth: "956px",
+    width: "100%",
     // TODO:CSS Gridリストと呼ばれる方法を使う
     // material-uiのGridと違って特定のpxで固定できるのがメリット
     display: "grid",
     // TODO:1fr(maxWidth:956px) - 120px でGridを2つに分ける 1frは836pxになる
     gridTemplateColumns: "1fr 120px",
-    maxWidth: "956px",
-    width: "100%",
     paddingTop: "24px",
     // TODO:特定のサイズ(xs)以下になったらdisplayをblockにして
     // gridを破壊する
@@ -214,7 +212,6 @@ export const VideoPlayListTitle = () => {
             </Grid>
           </Grid>
         </div>
-
         <Hidden xsDown>
           <div className={classes.buttonGridRight}>
             <div className={classes.createDate}>作成日：2020.10.04</div>

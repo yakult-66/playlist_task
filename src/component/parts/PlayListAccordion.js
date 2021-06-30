@@ -62,8 +62,8 @@ export const PlayListAccordion = () => {
   const classes = useStyles();
   const [accordionOpen, isAccordionOpen] = useState(false);
   return (
-    <div className={classes.playListAccordion}>
-      <Accordion>
+    <>
+      <Accordion style={{ boxShadow: "none" }}>
         <AccordionSummary
           onClick={() => isAccordionOpen(!accordionOpen)}
           aria-controls="panel1a-content"
@@ -92,6 +92,6 @@ export const PlayListAccordion = () => {
         </AccordionSummary>
       </Accordion>
       <Divider className={classes.divider} />
-    </div>
+    </>
   );
 };
