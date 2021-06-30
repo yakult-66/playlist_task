@@ -9,6 +9,7 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
+import { PinDropSharp } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -63,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#BBBBBB",
     [theme.breakpoints.down("xs")]: {
       paddingTop: 60,
+      fontSize: 12,
     },
   },
   arrowForward: {

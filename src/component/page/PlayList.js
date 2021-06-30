@@ -81,18 +81,16 @@ export const PlayList = () => {
         <PlayListAccordion />
         <Divider className={classes.playListAccordionDivider} />
         {/** 動画リスト */}
-        <div>
-          {content.map((data, index) => {
-            return (
-              <VideoListCard
-                key={index}
-                videoTitle={`${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です`}
-                videoLength="10:10:10"
-                onClick={() => alert(`${data}番目のカードがクリックされました`)}
-              />
-            );
-          })}
-        </div>
+        {content.map((data, index) => {
+          return (
+            <VideoListCard
+              key={index}
+              videoTitle={`${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です${data}番目の動画です`}
+              videoLength="10:10:10"
+              /* onClick={() => alert(`${data}番目のカードがクリックされました`)} */
+            />
+          );
+        })}
       </div>
     </div>
   );
