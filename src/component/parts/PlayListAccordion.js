@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 8,
     paddingLeft: 8,
   },
+  accordion: { boxShadow: "none" },
+
   accordionText: {
     fontFamily: "Noto Sans JP",
     fontWeight: 400,
@@ -58,8 +60,8 @@ export const PlayListAccordion = () => {
   const classes = useStyles();
   const [accordionOpen, isAccordionOpen] = useState(false);
   return (
-    <>
-      <Accordion style={{ boxShadow: "none" }}>
+    <div>
+      <Accordion className={classes.accordion}>
         <AccordionSummary
           onClick={() => isAccordionOpen(!accordionOpen)}
           aria-controls="panel1a-content"
@@ -91,6 +93,6 @@ export const PlayListAccordion = () => {
           </Typography>
         </AccordionSummary>
       </Accordion>
-    </>
+    </div>
   );
 };
