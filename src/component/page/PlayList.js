@@ -46,6 +46,20 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 16,
     },
   },
+  videoPlayListTitleDivider: {
+    backgroundColor: "#4F535C",
+    marginTop: 12,
+    marginBottom: 12,
+    [theme.breakpoints.down("md")]: { marginTop: 36 },
+    [theme.breakpoints.down("xs")]: { marginTop: 12 },
+  },
+  playListAccordionDivider: {
+    backgroundColor: "#4F535C",
+    marginTop: 12,
+    marginBottom: 12,
+    [theme.breakpoints.down("md")]: { marginBottom: 36 },
+    [theme.breakpoints.down("xs")]: { marginBottom: 12 },
+  },
 }));
 
 export const PlayList = () => {
@@ -59,13 +73,13 @@ export const PlayList = () => {
         <Divider className={classes.titleDivider} />
       </div>
       {/** コンテンツ部分 */}
-      <div className={classes.content} style={{}}>
+      <div className={classes.content}>
         {/** プレイリストタイトル部分 */}
         <VideoPlayListTitle />
+        <Divider className={classes.videoPlayListTitleDivider} />
         {/** アコーディオン部分 */}
-        <div>
-          <PlayListAccordion />
-        </div>
+        <PlayListAccordion />
+        <Divider className={classes.playListAccordionDivider} />
         {/** 動画リスト */}
         <div>
           {content.map((data, index) => {

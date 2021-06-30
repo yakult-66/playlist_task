@@ -12,18 +12,14 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    // TODO:div要素を横並び
     display: "flex",
     height: "100px",
     background: "transparent",
     boxShadow: "none",
     "& .MuiCardContent-root": {
       paddingTop: "18px",
-      //paddingBottom: "35px",
       paddingLeft: "16px",
-      //paddingRight: "16px",
       width: "777px",
-      //height: "47px",
       [theme.breakpoints.down("xs")]: {
         paddingLeft: 0,
       },
@@ -33,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     height: 63,
     width: 112,
   },
+  img: { width: 48, height: 27, position: "absolute", paddingTop: 4.5 },
   videoInfo: {
     paddingRight: 0,
     background: "#35383F",
@@ -71,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
   arrowForward: {
     paddingTop: 40,
     paddingBottom: 40,
-    //paddingRight: 15,
     paddingLeft: 16,
     color: "#F9FAFC",
   },
@@ -93,19 +89,11 @@ export const VideoListCard = ({ videoTitle, videoLength }) => {
               />
             </div>
           </Hidden>
-          <CardContent
-            className={classes.videoInfo}
-            style={{ position: "relative" }}
-          >
+          <CardContent className={classes.videoInfo}>
             <Hidden smUp>
               <img
+                className={classes.img}
                 src="https://source.unsplash.com/random/"
-                style={{
-                  width: 48,
-                  height: 27,
-                  position: "absolute",
-                  paddingTop: 4.5,
-                }}
                 alt="img"
               />
             </Hidden>

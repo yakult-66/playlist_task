@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { VideoStartButton } from "./VideoStartButton";
 import { SortDelButton } from "./SortDelButton";
 import { EditButton } from "./EditButton";
-import { Grid, Typography, Hidden, Divider } from "@material-ui/core";
+import { Grid, Typography, Hidden } from "@material-ui/core";
 import { PlayIcon } from "../icon/PlayIcon";
 
 const useStyles = makeStyles((theme) => ({
@@ -162,13 +162,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#BBBBBB",
     textAlign: "center",
   },
-  divider: {
-    backgroundColor: "#4F535C",
-    marginTop: 12,
-    marginBottom: 12,
-    [theme.breakpoints.down("md")]: { marginTop: 36 },
-    [theme.breakpoints.down("xs")]: { marginTop: 12 },
-  },
 }));
 
 export const VideoPlayListTitle = () => {
@@ -212,6 +205,7 @@ export const VideoPlayListTitle = () => {
             </Grid>
           </Grid>
         </div>
+        {/** TODO:xs以下になったら隠す */}
         <Hidden xsDown>
           <div className={classes.buttonGridRight}>
             <div className={classes.createDate}>作成日：2020.10.04</div>
@@ -224,7 +218,6 @@ export const VideoPlayListTitle = () => {
           </div>
         </Hidden>
       </div>
-      <Divider className={classes.divider} />
     </div>
   );
 };

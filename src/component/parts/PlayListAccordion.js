@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   playListAccordionSummaryRoot: {
@@ -37,21 +36,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   accordionHidden: {
+    // TODO:複数行のテキストで幅をはみ出した際に...を表示するためには
+    // display:web-kit-boxが必要だが、displayが使えなくなる欠点がある
     display: "-webkit-box",
+    // TODO:要素を縦に並べる
     "-webkit-box-orient": "vertical",
+    // TODO:指定した値を超える行数の場合...を表示させる
     "-webkit-line-clamp": 3,
   },
   expandMoreIcon: {
     color: "#F9FAFC",
     paddingRight: 0,
     paddingLeft: 0,
-  },
-  divider: {
-    backgroundColor: "#4F535C",
-    marginTop: 12,
-    marginBottom: 12,
-    [theme.breakpoints.down("md")]: { marginBottom: 36 },
-    [theme.breakpoints.down("xs")]: { marginBottom: 12 },
   },
 }));
 
@@ -80,6 +76,10 @@ export const PlayListAccordion = () => {
               !accordionOpen && classes.accordionHidden
             )}
           >
+            {/** TODO:accodionOpenがtrueならばword内の\nをsplitして配列化
+             * それをmap関数で回す htmlなので改行には<br />が必要
+             * accodionOpenがfalseならば改行無しのwordを表示するだけ
+             */}
             {accordionOpen
               ? word.split("\n").map((data, index) => (
                   <>
@@ -91,7 +91,6 @@ export const PlayListAccordion = () => {
           </Typography>
         </AccordionSummary>
       </Accordion>
-      <Divider className={classes.divider} />
     </>
   );
 };
